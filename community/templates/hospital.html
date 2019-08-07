@@ -1,0 +1,238 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>Healthco</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
+	<link rel="stylesheet" href='{% static "vendors/linericon/style.css" %}'>
+	<link rel="stylesheet" href='{% static "css/font-awesome.min.css" %}'>
+	<link rel="stylesheet" href='{% static "vendors/owl-carousel/owl.carousel.min.css" %}'>
+	<link rel="stylesheet" href='{% static "vendors/lightbox/simpleLightbox.css" %}'>
+	<link rel="stylesheet" href='{% static "vendors/nice-select/css/nice-select.css" %}'>
+	<link rel="stylesheet" href='{% static "vendors/animate-css/animate.css" %}'>
+	<link rel="stylesheet" href='{% static "vendors/jquery-ui/jquery-ui.css" %}'>
+	<!-- main css -->
+	<link rel="stylesheet" href='{% static "css/style.css" %}'>
+	<link rel="stylesheet" href='{% static "css/responsive.css" %}'>
+</head>
+
+<body>
+
+	<!--================Header Menu Area =================-->
+	<header class="header_area">
+		<div class="top_menu row m0">
+			<div class="container">
+				<div class="float-left">
+					<ul class="left_side">
+						<li>
+							<h4>노인 주요 질환 예측 플랫폼</h4>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href='{% url "index" %}'>
+						<img src='{% static "img/healthcare.png" %}' height="50" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					 aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<div class="row ml-0 w-100">
+							<div class="col-lg-12 pr-0">
+								<ul class="nav navbar-nav center_nav pull-right">
+									<li class="nav-item">
+										<a class="nav-link" href='{% url "index" %}'>Home</a>
+									</li>
+									<li class="nav-item submenu dropdown">
+										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">질병 진단</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a class="nav-link" href='{% url "about" %}'>자가 진단</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href='{% url "hospital" %}'>병원 진단</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href='{% url "contact" %}'>병원 찾기</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================Header Menu Area =================-->
+
+	<!--================ Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-left">
+					<h2>Disease Self-diagnosis</h2>
+					<div class="page_link">
+						<a href='{% url "index" %}'>Home</a>
+						<a href='{% url "hospital" %}'>병원 진단</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Banner Area =================-->
+
+	<!-- Start Appointment Area -->
+	<section class="appointment-area">
+		<div class="container">
+			<div class="row justify-content-between align-items-center appointment-wrap">
+				<div class="col-lg-5 col-md-6 appointment-left">
+					<h1>
+						How to Use
+					</h1>
+					<p>
+						나이, 신체지수, 혈액검사를 통한 간질환 발병에 대한 예측 모델입니다
+					</p>
+					<ul class="time-list">
+						<li class="d-flex justify-content-between">
+							<span><h5><b>신체지수</b></h5></span>
+							<span></br>환자의 현재 체중, 허리둘레를 정확히 입력해주세요</span>
+						</li>
+						<li class="d-flex justify-content-between">
+							<span><h5><b>혈액검사결과</b></h5></span>
+							<span></br>AST, 감마지티피, 트리글리세라이드, HDL, 혈색소 수치를 정확히 입력해주세요</span>
+						</li>
+					</ul>
+					<p>
+						모든 정보를 입력한 뒤 진단을 눌러주세요!
+					</p>
+				</div>
+				<div class="col-lg-6 col-md-6 pt-60 pb-60">
+					<div class="appointment-right">
+						<form class="form-wrap" action='{% url "phospital" %}' method="post">
+							<h3 class="pb-20 text-center mb-20">정보 입력창</h3>
+							<input type="text" class="form-control" name="age" placeholder="나 이" onfocus="this.placeholder = ''" onblur="this.placeholder = '나 이'">
+							<input type="text" class="form-control" name="height" placeholder="신 장(cm)" onfocus="this.placeholder = ''" onblur="this.placeholder = '신 장(cm)'">
+							<input type="text" class="form-control" name="weight" placeholder="체 중(kg)" onfocus="this.placeholder = ''" onblur="this.placeholder = '체 중(kg)'">
+							<input type="text" class="form-control" name="waist" placeholder="허리 둘레(cm)" onfocus="this.placeholder = ''" onblur="this.placeholder = '허리 둘레(cm)'">
+							<h6>혈액 검사 결과</h6>
+							<input type="text" class="form-control" name="AST" placeholder="AST(mg/dL)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'AST(mg/dL)'">
+							<input type="text" class="form-control" name="GTP" placeholder="감마지티피(IU/L)" onfocus="this.placeholder = ''" onblur="this.placeholder = '감마지티피(IU/L)'">
+							<input type="text" class="form-control" name="TGS" placeholder="트리글리세라이드(mg/dL)" onfocus="this.placeholder = ''" onblur="this.placeholder = '트리글리세라이드(mg/dL)'">
+							<input type="text" class="form-control" name="HDL" placeholder="HDL콜레스테롤(mg/dL)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'HDL콜레스테롤(mg/dL)'">
+							<input type="text" class="form-control" name="hemo" placeholder="혈색소(g/dL)" onfocus="this.placeholder = ''" onblur="this.placeholder = '혈색소(g/dL)'">
+							{% csrf_token %}
+							<div class="text-center">
+								<input type="submit" class="main_btn text-uppercase" value="진 단">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Appointment Area -->
+
+	<!--================ Start recent-blog Area =================-->
+	<section class="recent-blog-area section_gap">
+		<div class="container">
+			<div class="row justify-content-center section-title-wrap">
+				<div class="col-lg-12">
+					<h1><b>진단 결과</b></h1>
+					<p>
+						<b>Healthco 플랫폼을 통해 예측한 결과입니다.</b>
+					</p>
+				</div>
+			</div>
+			<div class="row justify-content-center section-title-wrap">
+				<div class="col-lg-12">
+					<h2>{{ default_str }}</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="single-recent-blog col-lg-4 col-md-4">
+					<a href="#">
+						<h4>Portable Fashion for women</h4>
+					</a>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud.
+					</p>
+					<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+						<div class="meta">
+							<span class="lnr lnr-calendar-full"></span> 13th Dec
+							<span class="lnr lnr-heart"></span> 15
+							<span class="lnr lnr-bubble"></span> 04
+						</div>
+					</div>
+				</div>
+				<div class="single-recent-blog col-lg-4 col-md-4">
+					<a href="#">
+						<h4>Summer ware are coming</h4>
+					</a>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud.
+					</p>
+					<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+						<div class="meta">
+							<span class="lnr lnr-calendar-full"></span> 13th Dec
+							<span class="lnr lnr-heart"></span> 15
+							<span class="lnr lnr-bubble"></span> 04
+						</div>
+					</div>
+				</div>
+				<div class="single-recent-blog col-lg-4 col-md-4">
+					<a href="#">
+						<h4>Summer ware are coming</h4>
+					</a>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud.
+					</p>
+					<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+						<div class="meta">
+							<span class="lnr lnr-calendar-full"></span> 13th Dec
+							<span class="lnr lnr-heart"></span> 15
+							<span class="lnr lnr-bubble"></span> 04
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ end recent-blog Area =================-->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src='{% static "js/jquery-3.2.1.min.js" %}'></script>
+	<script src='{% static "js/popper.js" %}'></script>
+	<script src='{% static "js/bootstrap.min.js" %}'></script>
+	<script src='{% static "vendors/lightbox/simpleLightbox.min.js" %}'></script>
+	<script src='{% static "vendors/nice-select/js/jquery.nice-select.min.js" %}'></script>
+	<script src='{% static "vendors/owl-carousel/owl.carousel.min.js" %}'></script>
+	<script src='{% static "js/jquery.ajaxchimp.min.js" %}'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+	<script src='{% static "js/mail-script.js" %}'></script>
+	<script src='{% static "js/custom.js" %}'></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<htmI lang="en">
+<headd>
+    <meta charset="UTF-8">
+    <title>Write</title>
+</headd>
+<b0dy>
+    <form action="" method="post">
+        {% comment %}
+            {{ form.as_table }}
+            {{ form.as_p }}
+            {{ form.as_ul }}
+        {% endcomment %}
+        {{form.as_p}}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">저장</button>
+    </form>
+</b0dy>
+</htmI>
