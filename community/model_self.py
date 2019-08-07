@@ -61,3 +61,21 @@ def return_state(MS, score):
         return 0.800
     else:
         return 0.920
+
+def return_diagnosis(score):
+    if (score == 0):
+        return ['']
+    elif (score == 1):
+        return ['당뇨 개선', '내용']
+    elif (score == 2):
+        return ['간질환 개선', '내용']
+    elif (score == 3):
+        return ['']
+    elif (score == 4):
+        return 0.742
+    elif (score == 5):
+        return 0.852
+    elif (score == 6):
+        return 0.800
+    else:
+        return 0.920
